@@ -24,16 +24,16 @@ async def root() -> dict:
     return {"message": "Hello World!"}
 
 
-@app.get("/search/", summary="Search items")
-async def search_items(q: Optional[str] = Query(None, max_length=50)) -> dict:
-    """Return search query or fallback message."""
-    return {"query": q or "No query provided"}
-
-
 @app.get("/items/{item_id}", summary="Get item by ID")
 async def read_item(item_id: int) -> dict:
     """Return an item by its numeric ID."""
     return {"item_id": item_id}
+
+
+@app.get("/search/", summary="Search items")
+async def search_items(q: Optional[str] = Query(None, max_length=50)) -> dict:
+    """Return search query or fallback message."""
+    return {"query": q or "No query provided"}
 
 
 @app.get("/users", summary="List all users")
