@@ -45,14 +45,14 @@ async def solve_problem(request: SolutionRequest):
         result = solve_func(request.input_data)
         
         end_memory = process.memory_info().rss
-        memory_usage = (end_memory - start_memory) / 1024
+        memory_usage_kb = (end_memory - start_memory) / 1024
         execution_time = time.time() - start_time
         
         return SolutionResponse(
             problem_id=request.problem_id,
             result=result,
             execution_time=execution_time,
-            memory_usage=memory_usage
+            memory_usage=memory_usage_kb
         )
         
     except ImportError:
