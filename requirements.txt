@@ -1,4 +1,11 @@
+# Web Framework
 fastapi[standard,dev]
+
+# Development Tools
 watchfiles
- #data validation package
+
+# System Utilities
+psutil
+
+# Data Validation
 pydantic
