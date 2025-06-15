@@ -10,11 +10,57 @@ A FastAPI-based API for running and measuring the performance of algorithmic sol
 > 
 > The solutions are pre-written and the API simply executes them. This is a demonstration of FastAPI's features rather than a full-featured algorithmic problem platform.
 
+## Virtual Environment Setup (FastAPI)
+
+To isolate project dependencies, use a Python virtual environment.
+
+1. **Create the virtual environment**  
+   ```bash
+   python -m venv venv
+   ```
+
+2. **Activate it**  
+   - **macOS/Linux**:  
+     ```bash
+     source venv/bin/activate
+     ```
+   - **Windows**:  
+     ```bash
+     .\venv\Scripts\activate
+     ```
+
+3. **Confirm activation**  
+   Your terminal prompt should now begin with `(venv)`.
+
+4. **Install dependencies**  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   Example `requirements.txt`:
+   ```
+   fastapi[standard,dev]
+   watchfiles
+   psutil
+   pydantic
+   ```
+
+## VS Code Integration
+
+1. Open Command Palette: `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux)  
+2. Select:
+   ```
+   Python: Select Interpreter
+   ```
+3. Choose the one inside your `.venv` folder
+
+> If your environment doesn't appear, activate it in your terminal before opening VS Code.
+
 ## Features
 
 - Run algorithmic solutions with performance metrics (time and memory)
 - Organized by problem categories (arrays, strings, trees, etc.)
-- Interactive API documentation via Swagger UI (`/docs`)
+- Interactive API documentation via Swagger UI (`/docs`, and `/redoc`)
 - Clean, modular code structure
 - Type-safe request/response handling with Pydantic
 
