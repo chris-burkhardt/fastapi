@@ -31,7 +31,10 @@ async def solve_problem(request: SolutionRequest):
         module_path = f"app.solutions.{request.category}.{request.problem_id}"
         solution_module = __import__(module_path, fromlist=["solve"])
         
-        # Get the solve function from the module
+        # Check if the solve function exists in the module
+        if not hasattr(solution_module, "solve"):
+            raise HTTPException(status_code=404, detail=f"Solution function 'solve' not found in problem {request.problem_id} under category {request.category}")
+        
         solve_func = getattr(solution_module, "solve")
         
         # Execute the solution and measure performance (memory and time)
