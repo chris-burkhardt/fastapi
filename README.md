@@ -1,4 +1,4 @@
-# Algorithm Solutions API
+# Algorithm Solutions API 
 
 A FastAPI-based API for running and measuring the performance of algorithmic solutions. This project demonstrates clean code organization, API design, and performance measurement capabilities.
 
